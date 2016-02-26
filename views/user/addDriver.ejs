@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Truck Aggregation</title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="/css/tabsforaccount.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+  <div>
+  <div class="container" >
+      <div class="col-md-6" >
+          <div id="logbox"  >
+            <form action="/user/create" method="POST" class="form-signin" id="sign-up" >
+              <h2 class="form-signin-heading">Create an account as Driver</h2>
+                      <input type="text" class="input pass" placeholder="your company name" name="companyName" id="companyName">
+                      <input type="text" class="input pass" placeholder="your first name" name="firstName" id="firstName">
+                      <input type="text" class="input pass" placeholder="your last name" name="lastName" id="lastName">
+                    
+                      <input type="text" class="input pass" placeholder="your contact phone" name="phone" id="phone">
+                    
+                      <input type="text" class="input pass" placeholder="email address" name="email" id="email"></label>
+                    
+                    <input type="password" class="input pass" placeholder="password" name="password" id="password">
+                    <input type="password" class="input pass" placeholder="password again" name="confirmation">
+                    <input type="submit" class="inputButton" value="Create Account"/>
+                 
+                  <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+                
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Truck Aggregation</title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="/css/tabsforaccount.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+	<div class="container" >
+	    <div class="col-md-6" >
+	        <div id="logbox"  >
+				<form action="/user/update/<%= user.id %>" method="POST" class="form-signin">
+					<h2>Editing User</h2>
+
+					<input value="<%= user.firstName %>" name="firstName" type="text" class="input pass"/>
+					<input value="<%= user.lastName %>" name="lastName" type="text" class="input pass"/>
+					<input value="<% if(user.phoneNumber){ %> user.phoneNumber <%}else{ %>Phone Number Here<%} %>" name="phoneNumber" type="text" class="input pass"/>
+					<input type="submit" value="Proceed" class="inputButton"/>
+					<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+

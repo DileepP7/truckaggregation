@@ -1,0 +1,39 @@
+<div class="container">
+	<h3>Users</h3>
+	
+	<table class='userTable table'>
+		<tr>
+			<th></th>
+			<th>Order No.</th>
+			<th>Origin</th>
+			<th>Destination</th>
+			<th>Paid</th>
+			<th colspan=3>Actions</th>
+			
+		</tr>
+
+		
+		<tr data-id="<%= session.User.id %>" data-model="user">
+			<th><%= session.User.id %></th>
+			<th><%= session.User.name %></th>
+			<th><%= session.User.email %></th>
+			<th><%= session.User.email %></th>
+
+			<th><a href="/user/show/<%= session.User.id %>" class="btn btn-sm btn-primary">Show</a></th>
+			<th><a href="/user/edit/<%= session.User.id %>" class="btn btn-sm btn-warning">Edit</a></th>
+			
+			<th>
+				<form action="/user/destroy/<%= session.User.id %>" method="POST">
+					<input type="hidden" name="_method" value="delete"/>
+					<input type="submit" class="btn btn-sm btn-danger" value="Delete"/> 
+					<input type="hidden" name="_csrf" value="<%= _csrf %>"/> 
+				</form>
+
+			</th>
+			
+		</tr>
+
+		
+
+	</table>
+</div>

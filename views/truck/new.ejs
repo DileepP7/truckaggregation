@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Truck Aggregation</title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="/css/tabsforaccount.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+	<form action="/truck/addTruck/<%=session.User.id%>" method="POST" class="form-signin" id="addtruck" style="margin-left:200px;" >
+		
+		<h2 class="form-signin-heading"><u>Add new Truck</u></h2>
+		<ul class="form_fields">
+		<li>
+			<label for="truckModel">Truck Model</label>
+			<input type="text" class="input pass" placeholder="Truck Model" name="truckModel">
+		</li>
+		<li>
+			<label for="phoneNumber">Phone Number</label>
+			<input type="text" class="input pass" placeholder="Phone Number" name="phoneNumber">
+		</li>
+		<li>
+			<label for="rate">Rate</label>
+			<input type="text" class="input pass" placeholder="rate" name="rate">
+		</li>
+		<li>
+				<input type="checkbox" name="km" value="perKm" class="myCheckbox">
+				<label>Per Km</label>
+				<input type="checkbox" name="hr" value="perHour" class="myCheckbox">
+				<label>Per Hour</label>
+		</li>	
+		
+		
+		<br/>
+		<input type="submit" class="inputButton" value="Add Truck" style="padding-left:-20%;"/>
+		<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+		</ul>
+	</form>
+
+	<script type="text/javascript">
+	$('.myCheckbox').click(function() {
+	    $(this).siblings('input:checkbox').prop('checked', false);
+	});
+</script>
+</body>
+</html>

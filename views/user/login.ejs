@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Truck Aggregation</title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="/css/tabsforaccount.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+<div>
+<div class="container" >
+    <div class="col-md-6" >
+        <div id="logbox"  >
+            <form id="signup" method="POST" action="/session/create" class="form-signin">
+                <h1>User Login</h1>
+                <% if(flash && flash.err) { %>
+                    <ul class="alert alert-success">
+                    <% Object.keys(flash.err).forEach(function(error) { %>
+                        <li> <%= JSON.stringify(flash.err[error]) %> </li>
+                    <% }) %>
+                    </ul>
+                <% } %>
+                 <input name="email" type="email" placeholder="Email address" class="input pass"/>
+                <input name="password" type="password" placeholder="Choose a password" required="required" class="input pass"/>
+                <input type="submit" value="Sign-in" class="inputButton"/>
+            </form>
+            <div class="container-fluid">
+                <br>
+                <a class="small" href="/session/forgotPassword">Forgot password?</a>
+            </div> 
+        </div>
+    </div>
+</div>
+</div>
+
+
+</body>
+</html>
+
+
+
+
+
+

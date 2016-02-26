@@ -1,0 +1,22 @@
+<form action="/truck/updateTruck/<%= user.id %>" method="POST" class="form-signin">
+	<h2>Editing Truck Info</h2>
+
+	<input value="<%= truck.truckModel %>" name="truckModel" type="text" class="form-control"/>
+	<input value="<%= truck.driverName %>" name="driverName" type="text" class="form-control"/>
+	<input value="<%= truck.phoneNumber %>" name="phoneNumber" type="text" class="form-control"/>
+	<input value="<%= truck.rate %>" name="rate" type="text" class="form-control"/>
+
+	<% if(session.authenticated && session.User.admin){ %>
+		<% if(user.admin) { %>
+			<input type="hidden" name="admin" value="unchecked">
+			<label class="checkbox"><input type="checkbox" name="admin" checked>Admin</label>
+		<% } else { %>
+			<input type="hidden" name="admin" value="unchecked">
+			<label class="checkbox"><input type="checkbox" name="admin">Admin</label>
+		<% } %>
+
+	<% } %>
+
+	<input type="submit" value="Proceed" class="btn btn-lg btn-primary btn-block"/>
+	<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+</form>

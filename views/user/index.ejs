@@ -1,0 +1,45 @@
+<div class="container">
+	<h3>Users</h3>
+	
+	<table class='table'>
+		<tr>
+			<th>ID</th>
+			<th>firstName</th>
+			<th>lastName</th>
+			<th>Email</th>
+			<th>Role</th>
+			<th colspan=3>Actions</th>
+			
+		</tr>
+
+		<% _.each(user,function(user){ %>
+		<tr data-id="<%= user.id %>" data-model="user">
+			<th><%= user.id %></th>
+			<th><%= user.firstName %></th>
+			<th><%= user.lastName %></th>
+			<th><%= user.email %></th>
+			<% if(user.admin) { %>
+				<th>Admin</th>
+			<% } else { %>
+				<th>Visitor</th>
+			<% } %>
+
+
+			<th><a href="/user/show/<%= user.id %>" class="btn btn-sm btn-primary">Show</a></th>
+			<th><a href="/user/edit/<%= user.id %>" class="btn btn-sm btn-warning">Edit</a></th>
+			
+			<th>
+				<form action="/user/destroy/<%= user.id %>" method="POST">
+					<input type="hidden" name="_method" value="delete"/>
+					<input type="submit" class="btn btn-sm btn-danger" value="Delete"/> 
+					<input type="hidden" name="_csrf" value="<%= _csrf %>"/> 
+				</form>
+
+			</th>
+			<!-- <th><a href="/user/destroy/<%= user.id %>" class="btn btn-sm btn-danger">Delete</a></th> -->
+		</tr>
+
+		<% }) %>
+
+	</table>
+</div>

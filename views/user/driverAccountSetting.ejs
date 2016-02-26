@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Truck Aggregation</title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="/css/tabsforaccount.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+<div  class="col-sm-6">
+        <h3><b>Account Settings</b></h3>
+        <hr/>
+        <div class="col-xs-3"> <!-- required for floating -->
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs tabs-left sideways">
+            <li class="active"><a href="#profile-v" data-toggle="tab">Profile Settings</a></li>
+            <li><a href="#orders-v" data-toggle="tab">Active Orders</a></li>
+            <li><a href="#history-v" data-toggle="tab">History</a></li>
+            <li><a href="#support-v" data-toggle="tab">Support</a></li>
+          </ul>
+        </div>
+
+        <div class="col-xs-9">
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div class="tab-pane active" id="profile-v">
+              <div style="width:700px;height:auto;">
+              <div style="width:400px;float:left;">
+              <form action="/user/update/<%= session.User.id %>" method="POST" class="form-signin">
+                <ul>
+                <li>
+                  <label for="language">Language</label>
+                  <select name="language" class="form-control">
+                  <option>English</option>
+                  <option>Francais</option>        
+                  </select>
+                </li>
+                <li>
+                  <label for="firstName">Company Name</label>
+                  <input value="<%= session.User.firstName %>" name="firstName" type="text" class="form-control"/>
+                </li>
+
+                <li>
+                  <label for="lastName">Contact Name</label>
+                  <input value="<%= session.User.lastName %>" name="lastName" type="text" class="form-control"/>
+                </li>
+                <li>
+                  <label for="phoneNumber">Phone Number</label>
+                  <input value="<%= session.User.phoneNumber %>" name="phoneNumber" type="text" class="form-control"/>
+                </li>
+                <li>
+                  <label for="email">Contact Email</label>
+                  <input value="<%= session.User.email %>" name="email" type="email" class="form-control"/>
+                </li>
+                <li>
+                  <label>Accept to provide moverless Service?</label>
+                  <input type="checkbox" name="yes" value="yes" class="myCheckbox">
+                  <label>Yes</label>
+                  <input type="checkbox" name="no" value="no" class="myCheckbox">
+                  <label>No</label>
+                </li>
+                <li>
+                  <label for="paymentType">Payment Information</label>
+                  <select name="paymentType" class="form-control">
+                  <option selected>Method</option>
+                  <option>Paypal</option>
+                  <option>Direct Deposit</option>        
+                  </select>
+                </li>
+              </ul>
+
+                <input type="submit" value="Proceed" class="btn btn-lg btn-primary btn-block"/>
+                <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+                </form>
+            </div>
+            <div style="width:250px; float:right;">
+            <ul>
+                <li>
+                  <label for="language">Language</label>
+                  <select name="language" class="form-control">
+                  <option>English</option>
+                  <option>Francais</option>        
+                  </select>
+                </li>
+              </ul>
+            </div>
+          </div>
+            </div>
+            <div class="tab-pane" id="orders-v">Active Orders Here.</div>
+            <div class="tab-pane" id="history-v">
+                      <div class="container">
+                      <table class='userTable table'>
+                        <tr>
+                          <th></th>
+                          <th>Order No.</th>
+                          <th>Origin</th>
+                          <th>Destination</th>
+                          <th>Paid</th>
+                        </tr>
+
+                        
+                        <tr data-id="<%= session.User.id %>" data-model="user">
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                        </tr>
+                      </table>
+                    </div>
+            </div>
+            <div class="tab-pane" id="support-v">Support section here</div>
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+</div>
+
+</body>
+</html>

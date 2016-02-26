@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Truck Aggregation</title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+    <!--  
+        Stylesheets and Preprocessors
+        ==============================
+
+        You can always bring in CSS files manually with `<link>` tags, or asynchronously
+        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage 
+        of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+        By default, stylesheets from your `assets/styles` folder are included
+        here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
+        are supported. In production, your styles will be minified and concatenated into
+        a single file.
+        
+        To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+            
+            + Change the order of your CSS files
+            + Import stylesheets from other directories
+            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
+    -->
+    <link href="/css/tabsforaccount.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/css/flexslider.min.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="/css/line-icons.min.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="/css/elegant-icons.min.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="/css/lightbox.min.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="/css/theme-rocklobster.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="/css/custom.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+        <link href="/css/custom.css" rel="stylesheet" type="text/css" media="all">
+        <link href="/css/dropzone.css" rel="stylesheet" type="text/css" media="all">
+        <link href="/css/importer.less" rel="stylesheet" type="text/css" media="all">
+        <link src="/js/bootstrap-hover-dropdown.min.js">
+        <!--STYLES END-->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!--[if gte IE 9]>
+            <link rel="stylesheet" type="text/css" href="css/ie9.css" />
+        <![endif]-->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700%7CRaleway:700' rel='stylesheet' type='text/css'>
+        <script src="/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <link href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic" rel="stylesheet" type="text/css">
+        <link href="/css/font-helvetica.css" rel="stylesheet" type="text/css">
+
+    <!--STYLES-->
+    <link rel="stylesheet" href="/styles/bootstrap.css">
+    <link rel="stylesheet" href="/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/custom.css">
+    <link rel="stylesheet" href="/styles/dropzone.css">
+    <link rel="stylesheet" href="/styles/elegant-icons.min.css">
+    <link rel="stylesheet" href="/styles/flexslider.min.css">
+    <link rel="stylesheet" href="/styles/font-cardo.css">
+    <link rel="stylesheet" href="/styles/font-helvetica.css">
+    <link rel="stylesheet" href="/styles/font-lato.css">
+    <link rel="stylesheet" href="/styles/font-libre.css">
+    <link rel="stylesheet" href="/styles/font-opensans.css">
+    <link rel="stylesheet" href="/styles/font-roboto.css">
+    <link rel="stylesheet" href="/styles/font-titillium.css">
+    <link rel="stylesheet" href="/styles/ie9.css">
+    <link rel="stylesheet" href="/styles/importer.css">
+    <link rel="stylesheet" href="/styles/lightbox.min.css">
+    <link rel="stylesheet" href="/styles/line-icons.min.css">
+    <link rel="stylesheet" href="/styles/theme-aquatica.css">
+    <link rel="stylesheet" href="/styles/theme-aspirin.css">
+    <link rel="stylesheet" href="/styles/theme-blues.css">
+    <link rel="stylesheet" href="/styles/theme-buddha.css">
+    <link rel="stylesheet" href="/styles/theme-campfire.css">
+    <link rel="stylesheet" href="/styles/theme-cobalt.css">
+    <link rel="stylesheet" href="/styles/theme-dusk.css">
+    <link rel="stylesheet" href="/styles/theme-eco.css">
+    <link rel="stylesheet" href="/styles/theme-matte.css">
+    <link rel="stylesheet" href="/styles/theme-mustang.css">
+    <link rel="stylesheet" href="/styles/theme-rocklobster.css">
+    <link rel="stylesheet" href="/styles/theme-sunset.css">
+    <link rel="stylesheet" href="/styles/theme-tronic.css">
+    <link rel="stylesheet" href="/styles/theme-zest.css">
+    <link rel="stylesheet" href="/styles/theme.css">
+    <!--STYLES END-->
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default" >
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+     
+      <a class="navbar-brand" href="#">Truck Aggregation</a>
+      
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      
+      <ul class="nav navbar-nav navbar-right">
+      
+      
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+     
+      <ul class="nav navbar-nav" style="margin-top:12px;">
+                                    <% if(!session.authenticated) { %> 
+                                             <a href="/user/addDriver" class="btn btn-primary btn-filled btn-xs">Become a driver</a>
+                                            <a href="/user/login" class="btn btn-primary btn-filled btn-xs">Login</a>                         
+                                            <a href="/user/new" class="btn btn-primary btn-filled btn-xs">Signup</a>
+                                            <a href="/session/facebook" class="btn btn-primary btn-filled btn-xs">Facebook</a>
+                                    <% } %>
+                                    <% if(session.authenticated) { %>  
+                                        <li class="active"><a href="/user/show/<%= session.User.id %>">Welcome, <%= session.User.firstName %> <%= session.User.lastName %></a></li>    
+                                        <li class="dropdown">  
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+                                                Account Setting <b class="caret"></b>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li><a tabindex="-1" href="/user/accountSetting">Account Setting</a></li>
+                                                <li class="divider"></li>
+                                                <li><a tabindex="-1" href="#">My Orders</a></li>
+                                                <li><a tabindex="-1" href="#">My Trucks</a></li>
+                                                <li><a tabindex="-1" href="/user/resetPassword">Change Password</a></li>
+                                                <li class="divider"></li>
+                                                <li><a tabindex="-1" href="/session/destroy">Logout</a></li>
+                                            </ul>
+                                        </li>                                                          
+                                    <!--        <li class="dropdown">
+                                              <a href="#"  data-hover="dropdown" data-toggle="dropdown" class="dropdown-toggle">My Account <b class="caret"></b></a>
+                                              <ul class="dropdown-menu">
+                                                <li><a href="#">My Orders</a></li>
+                                                <li><a href="#">My Trucks</a></li>
+                                              </ul>
+                                            </li> -->
+                                    <% } %> 
+                                </ul>
+     
+    </div>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+          <%- body %> 
+
+   
+
+        
+
+    <!--
+        Client-side Templates
+        ========================
+
+        HTML templates are important prerequisites of modern, rich client applications.
+        To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
+        that you load these templates client-side.
+
+        By default, your Gruntfile is configured to automatically load and precompile
+        client-side JST templates in your `assets/templates` folder, then
+        include them here automatically (between TEMPLATES and TEMPLATES END).
+        
+        To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+
+            + Import templates from other directories
+            + Use a different template engine (handlebars, jade, dust, etc.)
+            + Internationalize your client-side templates using a server-side
+              stringfile before they're served.
+    -->
+
+    <!--TEMPLATES-->
+    
+    <!--TEMPLATES END-->
+
+
+    <!--
+
+      Client-side Javascript
+      ========================
+
+      You can always bring in JS files manually with `script` tags, or asynchronously
+      on the client using a solution like AMD (RequireJS).  Or, if you like, you can 
+      take advantage of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+      By default, files in your `assets/js` folder are included here
+      automatically (between SCRIPTS and SCRIPTS END).  Both JavaScript (.js) and
+      CoffeeScript (.coffee) are supported. In production, your scripts will be minified
+      and concatenated into a single file.
+      
+      To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+      For example, here are a few things you could do:
+          
+          + Change the order of your scripts
+          + Import scripts from other directories
+          + Use a different preprocessor, like TypeScript
+
+    -->
+        <script src="https://www.youtube.com/iframe_api"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.plugin.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.flexslider-min.js"></script>
+        <script src="js/smooth-scroll.min.js"></script>
+        <script src="js/skrollr.min.js"></script>
+        <script src="js/spectragram.min.js"></script>
+        <script src="js/scrollReveal.min.js"></script>
+        <script src="js/isotope.min.js"></script>
+        <script src="js/twitterFetcher_v10_min.js"></script>
+        <script src="js/lightbox.min.js"></script>
+        <script src="js/jquery.countdown.min.js"></script>
+        <script src="js/scripts.js"></script>
+    <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/customValidate.js"></script>
+    <script src="/js/dropzone.js"></script>
+    <script src="/js/jquery-1.11.1.js"></script>
+    <script src="/js/jquery.validation.js"></script>
+    <script src="/js/sails.io.js"></script>
+    <script src="/js/socket.io.js"></script>
+
+    <!--SCRIPTS-->
+    <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/bootstrap-hover-dropdown.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap/affix.js"></script>
+    <script src="/js/bootstrap/alert.js"></script>
+    <script src="/js/bootstrap/button.js"></script>
+    <script src="/js/bootstrap/carousel.js"></script>
+    <script src="/js/bootstrap/collapse.js"></script>
+    <script src="/js/bootstrap/dropdown.js"></script>
+    <script src="/js/bootstrap/modal.js"></script>
+    <script src="/js/bootstrap/popover.js"></script>
+    <script src="/js/bootstrap/scrollspy.js"></script>
+    <script src="/js/bootstrap/tab.js"></script>
+    <script src="/js/bootstrap/tooltip.js"></script>
+    <script src="/js/bootstrap/transition.js"></script>
+    <script src="/js/isotope.min.js"></script>
+    <script src="/js/jquery.countdown.min.js"></script>
+    <script src="/js/jquery.flexslider-min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.plugin.min.js"></script>
+    <script src="/js/lightbox.min.js"></script>
+    <script src="/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="/js/scrollReveal.js"></script>
+    <script src="/js/scrollReveal.min.js"></script>
+    <script src="/js/skrollr.min.js"></script>
+    <script src="/js/smooth-scroll.js"></script>
+    <script src="/js/smooth-scroll.min.js"></script>
+    <script src="/js/spectragram.js"></script>
+    <script src="/js/spectragram.min.js"></script>
+    <script src="/js/twitterFetcher_v10_min.js"></script>
+    <!--SCRIPTS END-->
+  </body>
+</html>

@@ -1,2 +1,3 @@
-# truckaggregation
-Repo for testing
+# api
+
+a [Sails](http://sailsjs.org) application

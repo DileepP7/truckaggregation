@@ -135,7 +135,7 @@ VIEW FOR FORGOT PASSWORD
   SEND PASSWORD RESET EMAIL
   **/
     sendResetEmail : function(req,res){
-    var sendgrid_api_key = "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";
+    var sendgrid_api_key = "";
     var sendgrid  = require('sendgrid')(sendgrid_api_key);
     var email = req.param('email');
     User.findOne({email: req.param('email')}, function (err, user) {
